@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMYAK Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">Admin Dashboard</div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="dashboard-actions">
+            <h1>Admin Dashboard</h1>
+            <div class="actions">
+                <button onclick="showSection('add-jewelry')">Add Jewelry</button>
+                <button onclick="showSection('edit-jewelry')">Edit Jewelry</button>
+                <button onclick="showSection('delete-jewelry')">Delete Jewelry</button>
+                <button onclick="showSection('sales')">Sales of the Month</button>
+                <button onclick="showSection('analytics')">Analytics</button>
+            </div>
+        </section>
+
+        <section id="add-jewelry" class="dashboard-section">
+            <h2>Add New Jewelry</h2>
+            <form id="add-jewelry-form">
+                <label for="jewelry-name">Name:</label>
+                <input type="text" id="jewelry-name" name="name" required>
+                
+                <label for="jewelry-price">Price:</label>
+                <input type="number" id="jewelry-price" name="price" required>
+                
+                <label for="jewelry-description">Description:</label>
+                <textarea id="jewelry-description" name="description" rows="4" required></textarea>
+                
+                <label for="jewelry-image">Image URL:</label>
+                <input type="text" id="jewelry-image" name="image_url" required>
+                
+                <button type="submit">Add Jewelry</button>
+            </form>
+            
+        </section>
+
+        <section id="edit-jewelry" class="dashboard-section">
+            <h2>Edit Jewelry Details</h2>
+            <!-- Add functionality to search and edit jewelry -->
+        </section>
+
+        <section id="delete-jewelry" class="dashboard-section">
+            <h2>Delete Jewelry</h2>
+            <!-- Add functionality to search and delete jewelry -->
+        </section>
+
+        <section id="sales" class="dashboard-section">
+            <h2>Sales of the Month</h2>
+            <p>Display sales data here.</p>
+        </section>
+
+        <section id="analytics" class="dashboard-section">
+            <h2>Analytics</h2>
+            <p>Display analytics and graphs here.</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 SAMYAK. All Rights Reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

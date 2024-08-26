@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .left-pane, .right-pane {
+            width: 48%;
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 5px;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .right-pane table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .right-pane th, .right-pane td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .right-pane th {
+            background-color: #f2f2f2;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+        .footer .footer-section {
+            display: inline-block;
+            margin: 10px 20px;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .toggle-link {
+            color: #ff5722;
+            cursor: pointer;
+            margin-bottom: 15px;
+            display: block;
+            transition: color 0.3s;
+        }
+        .toggle-link:hover {
+            color: #ff9800;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: #ff9800;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #ff5722;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Checkout</h2>
+        </div>
+        
+        <div class="toggle-link" id="login-toggle">Returning Customer? Click Here To Login</div>
+        <div id="login-section" class="hidden">
+            <a href="login.html">Go to Login</a>
+        </div>
+
+        <div class="toggle-link" id="coupon-toggle">Have A Coupon? Click Here To Enter Your Code</div>
+        <div id="coupon-section" class="hidden">
+            <form>
+                <div class="form-group">
+                    <label for="coupon-code">Coupon Code</label>
+                    <input type="text" id="coupon-code">
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="left-pane">
+                <h3>Billing Details</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country">
+                            <option value="india">India</option>
+                            <option value="usa">USA</option>
+                            <option value="uk">UK</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address1">Street Address Line 1</label>
+                        <input type="text" id="address1">
+                    </div>
+                    <div class="form-group">
+                        <label for="address2">Street Address Line 2 (Optional)</label>
+                        <input type="text" id="address2">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Town / City</label>
+                        <input type="text" id="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State / Division</label>
+                        <input type="text" id="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="postcode">Postcode / ZIP</label>
+                        <input type="text" id="postcode">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <div class="toggle-link" id="account-toggle">Create an account?</div>
+                        <div id="account-section" class="hidden">
+                            <a href="register.html">Go to Register</a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="toggle-link" id="shipping-toggle">Ship to a different address?</div>
+                        <div id="shipping-section" class="hidden">
+                            <!-- Add address fields similar to billing address -->
+                            <div class="form-group">
+                                <label for="shipping-address1">Shipping Address Line 1</label>
+                                <input type="text" id="shipping-address1">
+                            </div>
+                            <div class="form-group">
+                                <label for="shipping-address2">Shipping Address Line 2 (Optional)</label>
+                                <input type="text" id="shipping-address2">
+                            </div>
+                            <div class="form-group">
+                                <label for="shipping-city">Shipping Town / City</label>
+                                <input type="text" id="shipping-city">
+                            </div>
+                            <div class="form-group">
+                                <label for="shipping-state">Shipping State / Division</label>
+                                <input type="text" id="shipping-state">
+                            </div>
+                            <div class="form-group">
+                                <label for="shipping-postcode">Shipping Postcode / ZIP</label>
+                                <input type="text" id="shipping-postcode">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-note">Order Note</label>
+                        <textarea id="order-note" rows="4" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="right-pane">
+                <h3>Your Order Summary</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Products</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Suscipit Vestibulum × 1</td>
+                            <td>$165.00</td>
+                        </tr>
+                        <tr>
+                            <td>Ami Vestibulum suscipit × 4</td>
+                            <td>$165.00</td>
+                        </tr>
+                        <tr>
+                            <td>Vestibulum suscipit × 2</td>
+                            <td>$165.00</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Sub Total</th>
+                            <td>$400.00</td>
+                        </tr>
+                        <tr
+
+>
+                            <th>Shipping</th>
+                            <td>Flat Rate: $70.00</td>
+                        </tr>
+                        <tr>
+                            <th>Total Amount</th>
+                            <td>$470.00</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="form-group">
+                    <input type="radio" id="cod" name="payment-method" checked> Cash On Delivery
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="bank-transfer" name="payment-method"> Direct Bank Transfer
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="check" name="payment-method"> Pay with Check
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="paypal" name="payment-method"> PayPal
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="terms"> I have read and agree to the website terms and conditions.
+                </div>
+                <button>Place Order</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-section">
+                <p>WorldWide Shipping</p>
+                <p>Free Shipping Worldwide On order over Rs 1500 - 7 days a week</p>
+            </div>
+            <div class="footer-section">
+                <p>Support</p>
+                <p>24/7 CUSTOMER SERVICE Call us 24/7 at 000 - 123 - 456</p>
+            </div>
+            <div class="footer-section">
+                <p>Money Back</p>
+                <p>MONEY BACK Guarantee! Send within 30 days</p>
+            </div>
+            <div class="footer-section">
+                <p>Guide</p>
+                <p>SHOPPING GUIDE</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-toggle').addEventListener('click', function() {
+            const loginSection = document.getElementById('login-section');
+            loginSection.classList.toggle('hidden');
+        });
+
+        document.getElementById('coupon-toggle').addEventListener('click', function() {
+            const couponSection = document.getElementById('coupon-section');
+            couponSection.classList.toggle('hidden');
+        });
+
+        document.getElementById('account-toggle').addEventListener('click', function() {
+            const accountSection = document.getElementById('account-section');
+            accountSection.classList.toggle('hidden');
+        });
+
+        document.getElementById('shipping-toggle').addEventListener('click', function() {
+            const shippingSection = document.getElementById('shipping-section');
+            shippingSection.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+```
+

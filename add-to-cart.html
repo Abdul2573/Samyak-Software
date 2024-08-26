@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart - Jewelry Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">Jewelry Shop</div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="add-to-cart.html">Add to Cart</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="add-to-cart-container">
+        <div class="container">
+            <h1>Your Cart</h1>
+
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </tbody>
+            </table>
+
+            <div class="cart-summary">
+                <h2>Cart Summary</h2>
+                <p>Total Price: <span id="total-price">$0</span></p>
+                <button  class="checkout-btn" href="buynow.html">Proceed to Checkout</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Jewelry Shop</p>
+        <div class="social-icons">
+            <a href="#"><img src="icons/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="icons/instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="icons/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="icons/youtube.svg" alt="YouTube"></a>
+            <a href="#"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
